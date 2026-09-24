@@ -1,0 +1,345 @@
+/* The 2D road: a vertical carriageway with year markers and roadside signs. */
+
+.doc {
+  --road-x: 56px;
+  min-height: 100vh;
+  padding: 0 16px 120px;
+  background:
+    radial-gradient(120% 60% at 50% 0%, #121a26 0%, transparent 60%),
+    linear-gradient(180deg, #06080b, #030405);
+  color: var(--ink);
+}
+
+.hero {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 96px 0 56px var(--road-x);
+}
+
+.kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.name {
+  margin: 18px 0 0;
+  font-size: clamp(34px, 7vw, 64px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.title {
+  margin: 14px 0 0;
+  font-size: 19px;
+  color: var(--ink-2);
+}
+
+.summary {
+  margin: 22px 0 0;
+  max-width: 620px;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin: 24px 0 0;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.links a {
+  color: var(--nav);
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* Road */
+.road {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.road::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: -60px;
+  width: 30px;
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, transparent 3px, rgba(255, 255, 255, 0.5) 3px 4px, transparent 4px calc(100% - 4px), rgba(255, 255, 255, 0.5) calc(100% - 4px) calc(100% - 3px), transparent calc(100% - 3px)),
+    #15181d;
+}
+
+.road::after {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: -60px;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0 18px, transparent 18px 36px);
+}
+
+.section {
+  position: relative;
+  padding: 18px 0 30px var(--road-x);
+}
+
+.sectionSign {
+  display: inline-block;
+  margin: 18px 0 8px;
+  padding: 8px 14px 6px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  background: var(--career);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.signProject {
+  background: var(--project);
+}
+
+.signEducation {
+  background: var(--education);
+}
+
+.signInfo {
+  background: #1b2129;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.stop {
+  position: relative;
+  margin: 26px 0;
+}
+
+.year {
+  position: absolute;
+  left: calc(-1 * var(--road-x) + 2px);
+  top: 16px;
+  min-width: 54px;
+  padding: 4px 6px 2px;
+  border-radius: 5px;
+  background: #1b2129;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  z-index: 1;
+}
+
+.exit {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--project);
+}
+
+.card {
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.card p {
+  margin: 10px 0 0;
+}
+
+.role {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.org {
+  color: var(--ink) !important;
+  margin-top: 4px !important;
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 2px !important;
+}
+
+.arch {
+  font-size: 14px;
+}
+
+.bullets {
+  margin: 12px 0 0;
+  padding-left: 18px;
+}
+
+.bullets li {
+  margin: 4px 0;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.chips li {
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 7px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+}
+
+.districts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.district {
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.district h3 {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--nav);
+}
+
+.end {
+  max-width: 880px;
+  margin: 80px auto 0;
+  padding-left: var(--road-x);
+}
+
+.endSign {
+  display: inline-block;
+  margin: 0;
+  padding: 10px 18px 8px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 8px;
+  background: #1b2129;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.endSign small {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.statement {
+  margin: 18px 0 0;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+/* View switcher (client) */
+.bar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: calc(100vw - 32px);
+  padding: 10px 10px 10px 18px;
+  border-radius: 999px;
+  background: rgba(8, 10, 14, 0.9);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(10px);
+  font-size: 13px;
+  color: var(--ink-2);
+}
+
+.barBtn {
+  flex: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 9px 16px;
+  background: var(--ink);
+  color: #07090c;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .doc {
+    --road-x: 44px;
+    padding: 0 12px 120px;
+  }
+  .hero {
+    padding-top: 64px;
+  }
+  .road::before {
+    left: 8px;
+    width: 24px;
+  }
+  .road::after {
+    left: 19px;
+  }
+  .year {
+    min-width: 40px;
+    font-size: 10.5px;
+  }
+  .bar {
+    flex-direction: column;
+    border-radius: 16px;
+    text-align: center;
+    padding: 12px;
+  }
+}
